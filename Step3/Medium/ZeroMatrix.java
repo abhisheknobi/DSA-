@@ -147,7 +147,11 @@ public class ZeroMatrix {
          * { 1, 1, 1 }
          * };
          */
-        int[][] matrix = { { 0, 1, 2, 0 }, { 3, 4, 5, 2 }, { 1, 3, 1, 5 } };
+        int[][] matrix = { { 1, 1, 1, 1 },
+                { 1, 0, 1, 1 },
+                { 1, 1, 0, 1 },
+                { 0, 1, 1, 1 }
+        };
 
         System.out.println("Before setting zeros:");
         printMatrix(matrix);
