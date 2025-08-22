@@ -1,4 +1,4 @@
-package Step4;
+package Step4.Lecture1;
 
 public class BS {
     public static int iterative(int[] arr, int target) {

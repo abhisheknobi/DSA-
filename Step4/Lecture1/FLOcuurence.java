@@ -1,4 +1,4 @@
-package Step4;
+package Step4.Lecture1;
 
 /*
  * Given a sorted array of N integers, write a program 

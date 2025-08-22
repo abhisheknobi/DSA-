@@ -1,4 +1,4 @@
-package Step4;
+package Step4.Lecture1;
 /*
  * Problem Statement: You are given a sorted array arr of distinct 
  * values and a target value x. You need to search for the index of

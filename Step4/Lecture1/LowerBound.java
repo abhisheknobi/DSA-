@@ -1,4 +1,4 @@
-package Step4;
+package Step4.Lecture1;
 
 /*
  * Problem Statement: Given a sorted array of N integers and

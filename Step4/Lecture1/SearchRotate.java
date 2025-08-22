@@ -1,4 +1,4 @@
-package Step4;
+package Step4.Lecture1;
 
 /*
  * Search Element in a Rotated Sorted Array
@@ -56,6 +56,46 @@ public class SearchRotate {
         return -1;
     }
 
+    // Function to search in a rotated sorted array with duplicates
+    public static int optimal2(int[] arr, int k) {
+        int n = arr.length; // size of the array.
+        int low = 0, high = n - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            // if mid points the target
+            if (arr[mid] == k)
+                return mid;
+
+            // Edge case:
+            if (arr[low] == arr[mid] && arr[mid] == arr[high]) {
+                low = low + 1;
+                high = high - 1;
+                continue;
+            }
+
+            // if left part is sorted:
+            if (arr[low] <= arr[mid]) {
+                if (arr[low] <= k && k <= arr[mid]) {
+                    // element exists:
+                    high = mid - 1;
+                } else {
+                    // element does not exist:
+                    low = mid + 1;
+                }
+            } else { // if right part is sorted:
+                if (arr[mid] <= k && k <= arr[high]) {
+                    // element exists:
+                    low = mid + 1;
+                } else {
+                    // element does not exist:
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         int[] arr = { 4, 5, 6, 7, 0, 1, 2, 3 };
         int k = 0;
@@ -64,6 +104,23 @@ public class SearchRotate {
         int[] arr2 = { 4, 5, 6, 7, 0, 1, 2 };
         int k2 = 3;
         System.out.println("Index of " + k2 + " is: " + optimal(arr2, k2));
+        /*
+         * Example 1:
+         * Input Format: arr = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 3
+         * Result: True
+         * Explanation: The element 3 is present in the array.
+         * So, the answer is True.
+         * 
+         * Example 2:
+         * Input Format: arr = [7, 8, 1, 2, 3, 3, 3, 4, 5, 6], k = 10
+         * Result: False
+         * Explanation: The element 10 is not present in the array.
+         * So, the answer is False
+         */
+        int[] arr3 = { 7, 8, 1, 2, 3, 3, 3, 4, 5, 6 };
+        int k3 = 3;
+        System.out.println("Index of " + k3 + " is: " +
+                optimal2(arr3, k3));
     }
 
 }
