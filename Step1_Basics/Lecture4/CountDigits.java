@@ -22,6 +22,7 @@ public class CountDigits {
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
         System.out.println("Number of digits: " + cd(n));
+        sc.close();
     }
 }
 

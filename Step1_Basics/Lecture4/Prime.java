@@ -32,5 +32,6 @@ public class Prime {
         for (int prime : primes) {
             System.out.print(prime + " ");
         }
+        sc.close();
     }
 }

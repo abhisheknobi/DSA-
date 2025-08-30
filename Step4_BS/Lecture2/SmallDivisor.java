@@ -1,3 +1,5 @@
+package Step4_BS.Lecture2;
+
 public class SmallDivisor {
     /*
      * Given an array of integers nums and an integer threshold,

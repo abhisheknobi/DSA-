@@ -28,6 +28,7 @@ public class Hashing {
             System.out.println(hashh[num]);
 
         }
+        sc.close();
 
     }
 
@@ -55,6 +56,7 @@ public class Hashing {
             // fetching:
             System.out.println(hash[number]);
         }
+        sc.close();
     }
 
     public static void main(String[] args) {

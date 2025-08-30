@@ -1,5 +1,5 @@
-package Step4_BS.Lecture2;package Step4_BInarySearch.Lecture2;
-package Step4_BinarySearch.Lecture2;
+package Step4_BS.Lecture2;
+
 /*
  * Problem Statement: You are given 'N’ roses and you are also 
  * given an array 'arr'  where 'arr[i]'  denotes that the 'ith'

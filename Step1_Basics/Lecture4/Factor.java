@@ -36,5 +36,6 @@ public class Factor {
         System.out.println(hcf(n1, n2));
         System.out.print("LCM of " + n1 + "and" + n2 + " are: ");
         System.out.println(calculateLCM(n1, n2));
+        sc.close();
     }
 }

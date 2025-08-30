@@ -28,5 +28,6 @@ public class Reverse {
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
         System.out.println("Reversed number: " + reverse(n));
+        sc.close();
     }
 }

@@ -1,5 +1,4 @@
-package Step4_BS.Lecture2;package Step4_BInarySearch.Lecture2;
-package Step4_BinarySearch.Lecture2;
+package Step4_BS.Lecture2;
 
 /*
  * Koko loves to eat bananas. There are n piles of bananas,
@@ -56,7 +55,6 @@ public class Koko {
     }
 
     public int brute(int[] piles, int h) {
-        int n = piles.length;
         int maxi = maxElement(piles);
         for (int i = 0; i <= maxi; i++) {
             if (requireTime(piles, i) <= h)

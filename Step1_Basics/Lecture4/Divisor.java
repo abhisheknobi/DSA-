@@ -31,5 +31,6 @@ public class Divisor {
         for (int divisor : divisors) {
             System.out.print(divisor + " ");
         }
+        sc.close();
     }
 }
