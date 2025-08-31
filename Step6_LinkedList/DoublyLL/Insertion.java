@@ -100,25 +100,34 @@ public class Insertion {
     }
 
     private static Node DeleteAtPos(Node head, int pos) {
-        if (pos == 0)
-            head = DeleteBegin(head);
-        else {
-            Node temp = head;
-            for (int i = 1; i < pos; i++) {
-                if (temp == null || temp.next == null) {
-                    // Position out of bounds, do nothing or throw exception
-                    return head;
-                }
-                temp = temp.next;
-            }
-            temp.back.next = temp.next;
-            if (temp.next != null)
-                temp.next.back = temp.back;
+        Node temp = head;
+        int cnt = 0;
+        while (temp != null) {
+            cnt++;
+            if (cnt == pos)
+                break;
+            temp = temp.next;
+        }
+
+        Node prev = temp.back;
+        Node front = temp.next;
+
+        if (prev == null && front == null)
+            return head;
+
+        else if (prev == null) {
+            DeleteBegin(head);
+            return head;
+        } else if (front == null) {
+            DeleteEnd(head);
+            return head;
+        } else {
+            prev.next = front;
+            front.back = prev;
             temp.next = null;
             temp.back = null;
-
+            return head;
         }
-        return head;
     }
 
     public static void main(String[] args) {
