@@ -36,9 +36,8 @@ public class KadaneSum {
         System.out.print("]n");
 
         // To consider the sum of the empty subarray
-        // uncomment the following check:
-
-        // if (maxi < 0) maxi = 0;
+        if (maxi < 0)
+            maxi = 0;
 
         return maxi;
     }
