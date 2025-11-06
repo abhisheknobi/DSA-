@@ -33,11 +33,12 @@ public class KadaneSum {
         for (int i = ansStart; i <= ansEnd; i++) {
             System.out.print(arr[i] + " ");
         }
-        System.out.print("]n");
+        System.out.print("]");
 
         // To consider the sum of the empty subarray
-        if (maxi < 0)
-            maxi = 0;
+        // uncomment the following check:
+
+        // if (maxi < 0) maxi = 0;
 
         return maxi;
     }
