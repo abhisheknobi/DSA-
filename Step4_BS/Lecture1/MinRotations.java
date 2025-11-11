@@ -72,5 +72,4 @@ public class MinRotations {
         int[] arr2 = { 3, 4, 5, 1, 2 };
         System.out.println("Array has been rotated " + optimal(arr2) + " times.");
     }
-
 }

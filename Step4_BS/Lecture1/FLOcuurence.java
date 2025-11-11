@@ -122,6 +122,8 @@ public class FLOcuurence {
         int last = last(arr, target);
         return new int[] { first, last };
     }
+    //Use the better one in 90% of competitive programming problems when you need lower_bound.
+//Use the optimal one only when you strictly need exact match and -1 on failure.
 
     public static void main(String[] args) {
         int[] arr = { 3, 4, 13, 13, 13, 20, 40 };
