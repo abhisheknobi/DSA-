@@ -1,4 +1,4 @@
-package Step5_Strings;
+package Step5_Strings.Lec_1;
 /*
  * Problem Statement: Given two strings s and goal, return
  *  true if and only if s can become goal after some number

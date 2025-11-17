@@ -1,4 +1,4 @@
-package Step5_Strings;
+package Step5_Strings.Lec_1;
 
 import java.util.Arrays;
 

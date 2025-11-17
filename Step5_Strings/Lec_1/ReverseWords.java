@@ -1,4 +1,4 @@
-package Step5_Strings;
+package Step5_Strings.Lec_1;
 /*
  * Given an input string s, reverse the order of the words.
 
