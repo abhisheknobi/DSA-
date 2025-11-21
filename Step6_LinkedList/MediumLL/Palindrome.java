@@ -1,4 +1,4 @@
-package Step6_LinkedList.SinglyLL;
+package Step6_LinkedList.MediumLL;
 import java.util.ArrayDeque;
 /*
  * Example 1:
@@ -42,7 +42,17 @@ because it reads differently in reverse order, where
 "1 2 3 2 3."
  */
 import java.util.Deque;
+
 public class Palindrome {
+    // Local Node class to represent singly linked list nodes
+    public static class Node {
+        public int data;
+        public Node next;
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
     public static void printLinkedList(Node head){
         Node temp=head;
         while(temp!=null){
@@ -113,8 +123,8 @@ public class Palindrome {
         Node slow = head;
         Node fast = head;
     
-        // Traverse the linked list to find the
-        // middle using slow and fast pointers
+        //Here we need the 1st middle for odd and even length L
+        // that is why we are using fast.next and fast.next.next
         while (fast.next != null && fast.next.next != null) {
             // Move slow pointer one step at a time
             slow = slow.next;

@@ -76,6 +76,14 @@ public class Reverse {
 
     public static void main(String[] args) {
         int arr[] = { 10, 20, 30, 40, 50 };
+        Node head = Convert2Arr(arr);
+        Node newhead = Reversal(head);
+        Node temp = newhead;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        
 
     }
 

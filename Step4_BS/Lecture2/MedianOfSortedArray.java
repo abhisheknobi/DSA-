@@ -120,7 +120,7 @@ public class MedianOfSortedArray {
 
 public double optimal(int[] a, int[] b) {
         // Make sure array a is the smaller one to minimize binary search range
-        if (a.length > b.length) return findMedianSortedArrays(b, a);
+        if (a.length > b.length) return optimal(b, a);
 
         int n1 = a.length, n2 = b.length;
         int low = 0, high = n1;
@@ -174,3 +174,4 @@ public double optimal(int[] a, int[] b) {
         // Print the median result
         System.out.println(median);
     }
+}

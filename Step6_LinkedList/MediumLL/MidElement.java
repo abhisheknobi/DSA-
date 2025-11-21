@@ -1,4 +1,4 @@
-package Step6_LinkedList.SinglyLL;
+package Step6_LinkedList.MediumLL;
 
 class ListNode {
     int val;

@@ -1,4 +1,4 @@
-package Step6_LinkedList.SinglyLL;
+package Step6_LinkedList.MediumLL;
 /*
  * Given a LinkedList of integers. Modify the LinkedList in such 
  * \a way that in Modified LinkedList all the even numbers appear

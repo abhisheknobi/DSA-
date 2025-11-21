@@ -1,4 +1,5 @@
-package Step6_LinkedList.SinglyLL;
+package Step6_LinkedList.MediumLL;
+
 /*
  * Problem Statement: Given a linked list and an integer N,
  *  the task is to delete the Nth node from the end of the 
@@ -36,26 +37,58 @@ class ListNode {
     }
 public class DeleteLastNth {
 
-    public static ListNode brute(ListNode head,int n){
-        ListNode dummy=new ListNode(0);
-        dummy.next=head;
-        ListNode first=dummy;
-        ListNode second=dummy;
-
-        //Move first pointer n+1 steps ahead
-        for(int i=0;i<=n;i++){
-            first=first.next;
+    public static ListNode brute(ListNode head, int n) {
+        
+        if(head==null ){
+            return head;
+        }
+        
+        ListNode temp=head;
+          int count=0;
+        while(temp!=null){
+           count++;
+           temp=temp.next;
+        }
+        if (count == n) {
+            return head.next;
+        }
+        int del=count-n;
+        temp=head;
+        while (temp!= null) {
+            del--;
+            if (del == 0) {
+                break;
+            }
+            temp = temp.next;
         }
 
-        //Move both pointers until first reaches the end
-        while(first!=null){
-            first=first.next;
-            second=second.next;
+        // Delete the node
+        temp.next = temp.next.next;
+        return head;
+    }
+     public Node optimal(Node head, int N) {
+        // Create a dummy node before head to handle edge cases
+        Node dummy = new Node(0, head);
+
+        // Initialize slow and fast pointers at dummy
+        Node slow = dummy;
+        Node fast = dummy;
+
+        // Move fast pointer N+1 steps ahead to create a gap
+        for (int i = 0; i <= N; i++) {
+            fast = fast.next;
         }
 
-        //Delete the nth node from the end
-        second.next=second.next.next;
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
 
+        // Slow is now at node before target → delete target node
+        slow.next = slow.next.next;
+
+        // Return updated head
         return dummy.next;
     }
     

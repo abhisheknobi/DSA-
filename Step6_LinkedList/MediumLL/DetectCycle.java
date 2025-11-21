@@ -1,7 +1,8 @@
-package Step6_LinkedList.SinglyLL;
+package Step6_LinkedList.MediumLL;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 class Node {
     int data;
