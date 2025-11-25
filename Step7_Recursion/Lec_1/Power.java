@@ -1,10 +1,10 @@
-package Step7_Recursion;
+package Step7_Recursion.Lec_1;
 
 public class Power {
     public static double myPow(double x,int n){
         double ans = 1.0;
     long nn = n;
-    if (nn < 0) nn = -1 * nn;
+    if (nn < 0) nn = -1 * nn; //making it positive  
     while (nn > 0) {
       if (nn % 2 == 1) {
         ans = ans * x;
@@ -17,6 +17,6 @@ public class Power {
     if (n < 0) ans = (double)(1.0) / (double)(ans);
     return ans;
 
-    }
+    } 
     
 }
