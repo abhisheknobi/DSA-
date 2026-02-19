@@ -37,6 +37,12 @@ public class Atoi {
         // Start conversion
         return helper(s, sign, i, 0L);
     }
+    public static void main(String[] args) {
+        Atoi obj=new Atoi();
+        String s="   -42";
+        int result=obj.myAtoi(s);
+        System.out.println(result);
+    }
 }
 
     

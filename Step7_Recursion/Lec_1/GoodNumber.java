@@ -25,6 +25,7 @@ Explanation: Index 0: 5 options (even digits)
 Index 1: 4 options (prime digits)
 Total: 5 * 4 = 20
  */
+
 public class GoodNumber {
     static final int MOD = 1_000_000_007;
 

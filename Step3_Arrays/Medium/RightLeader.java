@@ -11,7 +11,7 @@ public class RightLeader {
 
         for (int i = 0; i < n; i++) {
             boolean leader = true;
-            for (int j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < n;) {
                 if (arr[j] > arr[i])
                     leader = false;
                 break;
