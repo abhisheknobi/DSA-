@@ -98,7 +98,7 @@ public class Bouquets {
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (possible(bloomDay, mid, m, k)) {
-                ans = mid; // ✅ valid answer
+                ans = mid; // valid answer
                 high = mid - 1;
             } else {
                 low = mid + 1;

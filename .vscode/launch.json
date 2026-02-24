@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NextGreaterElement",
+            "request": "launch",
+            "mainClass": "Step9_StackQueue.monotonic_stack.NextGreaterElement",
+            "projectName": "DSA-_a7bd8615"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Step9_StackQueue.Main",
+            "projectName": "DSA-_a7bd8615"
+        },
+        {
+            "type": "java",
+            "name": "MinSearchRotate",
+            "request": "launch",
+            "mainClass": "Step4_BS.Lecture1.MinSearchRotate",
+            "projectName": "DSA-_a7bd8615"
+        },
+        {
+            "type": "java",
+            "name": "MergeSort",
+            "request": "launch",
+            "mainClass": "Step2_Sorting.MergeSort",
+            "projectName": "DSA-_a7bd8615"
+        },
+        {
+            "type": "java",
             "name": "Factorial",
             "request": "launch",
             "mainClass": "Step1_Basics.Lecture5.Factorial",
