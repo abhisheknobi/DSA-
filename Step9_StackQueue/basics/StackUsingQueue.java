@@ -2,7 +2,7 @@ package Step9_StackQueue.basics;
 import java.util.*;
 
 // Stack implementation using Queue
-class StackUsingQueue {
+ public class StackUsingQueue {
     // Queue
     Queue<Integer> q = new LinkedList<>();
 
