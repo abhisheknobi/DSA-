@@ -24,13 +24,7 @@ Explanation: Here, both lists do not intersect and thus no
 intersection node is present.
  */
 import java.util.HashSet;
- class ListNode {
-     int val;
-     ListNode next;
-     ListNode() {}
-     ListNode(int val) { this.val = val; }
-     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- }
+
 public class Intersection {
     public static ListNode brute(ListNode head1, ListNode head2){
         while(head2 != null) {

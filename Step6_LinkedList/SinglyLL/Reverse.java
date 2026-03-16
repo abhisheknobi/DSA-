@@ -23,20 +23,7 @@ Explanation: In this example, the linked list contains only one node hence
 import java.util.Deque;
 import java.util.ArrayDeque;
 
-class Node {
-    int data;
-    Node next;
 
-    Node(int data1, Node next1) {
-        this.data = data1;
-        this.next = next1;
-    }
-
-    Node(int data1) {
-        this.data = data1;
-        this.next = null;
-    }
-}
 
 public class Reverse {
     public static Node Convert2Arr(int arr[]) {

@@ -1,20 +1,5 @@
 package Step6_LinkedList.SinglyLL;
 
-class Node {
-    int data;
-    Node next;
-
-    Node(int data1, Node next1) {
-        this.data = data1;
-        this.next = next1;
-    }
-
-    Node(int data1) {
-        this.data = data1;
-        this.next = null;
-    }
-}
-
 public class Intro {
     private static Node Convert2Arr(int arr[]) {
         Node head = new Node(arr[0]);
