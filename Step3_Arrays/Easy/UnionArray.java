@@ -6,7 +6,7 @@ public class UnionArray {
 
   static ArrayList<Integer> FindUnion(int arr1[], int arr2[], int n, int m) {
     int i = 0, j = 0; // pointers
-    ArrayList<Integer> Union = new ArrayList<>(); // Uninon vector
+    ArrayList<Integer> Union = new ArrayList<>(); //
     while (i < n && j < m) {
       if (arr1[i] <= arr2[j]) // Case 1 and 2
       {
