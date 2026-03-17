@@ -2,27 +2,26 @@ package Step3_Arrays.Easy;
 
 public class LeftRotation {
 
-    public static void printArray(int arr[]) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
-        }
+    public static void printArray(int[] arr) {
+       for(int i:arr){
+           System.out.println(i+" ");
+       }
     }
 
-    public static void lr(int arr[], int d) {
+    public static void lr(int[] arr, int d) {
         int n = arr.length;
 
-        if (arr == null || arr.length == 0 || d <= 0)
+        if( arr.length == 0 || d <= 0)
             return;
         d = d % n;
 
-        LReverse(arr, 0, d - 1);
-        LReverse(arr, d, n - 1);
-        LReverse(arr, 0, n - 1);
+        swap(arr, 0, d - 1);
+        swap(arr, d, n - 1);
+        swap(arr, 0, n - 1);
 
     }
 
-    public static void LReverse(int arr[], int start, int end) {
+     static void swap(int[] arr, int start, int end) {
         while (start < end) {
             arr[start] = arr[start] + arr[end];
             arr[end] = arr[start] - arr[end];
@@ -32,26 +31,17 @@ public class LeftRotation {
         }
     }
 
-    public static void rr(int arr[], int d) {
+     static void rr(int[] arr, int d) {
         int n = arr.length;
-        if ((arr == null) || (arr.length == 0) || d <= 0)
+        if ( (arr.length == 0) || d <= 0)
             return;
 
         d = d % n;
-        RReverse(arr, n - d, n - 1);
-        RReverse(arr, 0, n - d - 1);
-        RReverse(arr, 0, n - 1);
+        swap(arr, n - d, n - 1);
+        swap(arr, 0, n - d - 1);
+        swap(arr, 0, n - 1);
     }
 
-    public static void RReverse(int arr[], int start, int end) {
-        while (start < end) {
-            arr[start] = arr[start] + arr[end];
-            arr[end] = arr[start] - arr[end];
-            arr[start] = arr[start] - arr[end];
-            start++;
-            end--;
-        }
-    }
 
     /*
      * Otherwise we can use the following method to rotate the array
@@ -71,7 +61,7 @@ public class LeftRotation {
         lr(arr, d);
         printArray(arr);
 
-        int arr1[] = { 1, 2, 3, 4, 5 };
+        int[] arr1 = { 1, 2, 3, 4, 5 };
         System.out.println();
         System.out.println("Before Right Rotation:");
         printArray(arr1);
