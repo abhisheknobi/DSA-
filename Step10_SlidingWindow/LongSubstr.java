@@ -79,19 +79,21 @@ public class LongSubstr {
     }
 
         public static int optimal(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        int start = 0;
-        int length = 0;
-        for(int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if(map.containsKey(c)) {
-                start = Math.max(start, map.get(c) + 1);
+            int maxLength = 0;
+            int left = 0;
+            Map<Character, Integer> lastSeen = new HashMap<>();
+
+            for (int right = 0; right < s.length(); right++) {
+                char c = s.charAt(right);
+                if (lastSeen.containsKey(c) && lastSeen.get(c) >= left) {
+                    left = lastSeen.get(c) + 1;
+                }
+                maxLength = Math.max(maxLength, right - left + 1);
+                lastSeen.put(c, right);
             }
-            length = Math.max(length, i - start + 1);
-            map.put(c, i);
+
+            return maxLength;
         }
-        return length;
-    }
     public static void main(String[] args) {
         String s = "abcddabac";
         int ans = optimal(s);
