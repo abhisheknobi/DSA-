@@ -1,4 +1,4 @@
-package Step16_DP;
+package Step16_DP.oned_dp;
 /*
 Problem Statement: Given a number of stairs and a frog, the frog wants to climb from the
  0th stair to the (N-1)th stair. At a time the frog can climb either one or two steps.
