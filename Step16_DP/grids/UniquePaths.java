@@ -34,16 +34,24 @@ Explanation:
 4) right → right → right → down
  */
 public class UniquePaths {
-    static void main(String[] args) {
-        System.out.println(unique(3,2));
+    public static void main(String[] args) {
+        int m = 3, n = 2;
+        System.out.println("Memoization: " + uniqueMemo(m, n));
+        System.out.println("Tabulation: " + uniqueTab(m, n));
+        System.out.println("Optimized: " + optimized(m, n));
     }
 
-    private static int unique(int i, int j) {
-        int[][]dp=new int[i][j];
-        for(int[]row:dp)
-            Arrays.fill(row,-1);
+    private static int uniqueMemo(int m, int n) {
+        int[][] dp = new int[m][n];
+        for (int[] row : dp)
+            Arrays.fill(row, -1);
 
-        return func(i-1,j-1,dp);
+        return memo(m - 1, n - 1, dp);
+    }
+
+    private static int uniqueTab(int m, int n) {
+        int[][] dp = new int[m][n];
+        return tab(m, n, dp);
     }
 
     //memoization
@@ -60,32 +68,46 @@ public class UniquePaths {
 
         return dp[i][j]=up+left;
     }
-
-    static int func(int m, int n, int[][] dp) {
-        // Loop through the grid using two nested loops
+    //tabulation
+    static int tab(int m, int n, int[][] dp) {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                // Base condition
                 if (i == 0 && j == 0) {
-                    dp[i][j] = 1;
+                    dp[0][0] = 1;
                     continue;
                 }
-
                 int up = 0;
                 int left = 0;
-
-                // Check cell above
                 if (i > 0)
                     up = dp[i - 1][j];
-
-                // Check cell to the left
                 if (j > 0)
                     left = dp[i][j - 1];
-
-                // Total ways to reach this cell
                 dp[i][j] = up + left;
             }
         }
         return dp[m - 1][n - 1];
+    }
+
+    //space optimization
+    public static int optimized(int m, int n) {
+        int[] prev = new int[n];
+        for (int i = 0; i < m; i++) {
+            int[] temp = new int[n];
+            for (int j = 0; j < n; j++) {
+                if (i == 0 && j == 0) {
+                    temp[j] = 1;
+                    continue;
+                }
+                int up = 0;
+                int left = 0;
+                if (i > 0)
+                    up = prev[j];
+                if (j > 0)
+                    left = temp[j - 1];
+                temp[j] = up + left;
+            }
+            prev = temp;
+        }
+        return prev[n - 1];
     }
 }
