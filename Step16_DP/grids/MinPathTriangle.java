@@ -76,4 +76,22 @@ public class MinPathTriangle {
         // Store the minimum of the two paths in dp and return it
         return dp[i][j] = Math.min(d, dg);
     }
+
+    //tabulation
+    private static int tab(int[][]arr,int[][]dp){
+        int n=arr.length;
+        //fill last row for reference: base case
+        for(int j=0;j<n;j++){
+            dp[n-1][j]=arr[n-1][j];
+        }
+
+        for(int i=n-2;i>=0;i--){
+            for(int j=i;j>=0;j++){
+                int d=arr[i][j]+dp[i+1][j];
+                int dg=arr[i][j]+dp[i+1][j+1];
+                dp[i][j]=Math.min(d,dg);
+            }
+        }
+        return dp[0][0];
+    }
 }
