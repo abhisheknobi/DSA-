@@ -1,4 +1,7 @@
 package Step16_DP.grids;
+
+import java.util.Arrays;
+
 /*
 Given a triangle array, return the minimum path sum from top to bottom.
 
@@ -22,14 +25,20 @@ Input: triangle = [[-10]]
 Output: -10
  */
 public class MinPathTriangle {
-    static void main(String[] args) {
+    public static void main(String[] args) { // Corrected main method signature
         int [][]triangle={
                         {2},
                         {3,4},
                         {6,5,7},
                         {4,1,8,3}
                         };
-        System.out.println(func(0,0,triangle));
+        // Correctly initialize dp array for a triangle
+        int[][]dp=new int[triangle.length][];
+        for (int k = 0; k < triangle.length; k++) {
+            dp[k] = new int[triangle[k].length];
+            Arrays.fill(dp[k], -1);
+        }
+        System.out.println(memo(0,0,triangle,dp));
     }
     //recursive
     /*
@@ -47,4 +56,24 @@ public class MinPathTriangle {
     }
 
     //memoization
+    private static int memo(int i,int j,int[][]arr,int[][]dp){
+        // Base case: If we are at the last row, return the value at that position
+        if(i == arr.length - 1) {
+            return arr[i][j];
+        }
+
+        // If the value is already computed, return it
+        if(dp[i][j] != -1) {
+            return dp[i][j];
+        }
+
+        // Recursive calls for down and down-right paths
+        // d: move to (i+1, j)
+        int d = arr[i][j] + memo(i + 1, j, arr, dp);
+        // dg: move to (i+1, j+1)
+        int dg = arr[i][j] + memo(i + 1, j + 1, arr, dp);
+
+        // Store the minimum of the two paths in dp and return it
+        return dp[i][j] = Math.min(d, dg);
+    }
 }
