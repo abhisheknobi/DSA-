@@ -38,8 +38,11 @@ public class MinPathTriangle {
             dp[k] = new int[triangle[k].length];
             Arrays.fill(dp[k], -1);
         }
-        System.out.println(memo(0,0,triangle,dp));
+        System.out.println("Memoization: " + memo(0, 0, triangle, dp));
+        System.out.println("Tabulation: " + tab(triangle, dp));
+        System.out.println("Optimized: " + optimized(triangle));
     }
+
     //recursive
     /*
     here we changed our model that is previously we started from
@@ -78,20 +81,42 @@ public class MinPathTriangle {
     }
 
     //tabulation
-    private static int tab(int[][]arr,int[][]dp){
-        int n=arr.length;
-        //fill last row for reference: base case
-        for(int j=0;j<n;j++){
-            dp[n-1][j]=arr[n-1][j];
+    private static int tab(int[][] arr, int[][] dp) {
+        int n = arr.length;
+        // fill last row for reference: base case
+        for (int j = 0; j < n; j++) {
+            dp[n - 1][j] = arr[n - 1][j];
         }
 
-        for(int i=n-2;i>=0;i--){
-            for(int j=i;j>=0;j++){
-                int d=arr[i][j]+dp[i+1][j];
-                int dg=arr[i][j]+dp[i+1][j+1];
-                dp[i][j]=Math.min(d,dg);
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i; j >= 0; j--) {
+                int d = arr[i][j] + dp[i + 1][j];
+                int dg = arr[i][j] + dp[i + 1][j + 1];
+                dp[i][j] = Math.min(d, dg);
             }
         }
         return dp[0][0];
+    }
+
+    // space optimization
+    public static int optimized(int[][] arr) {
+        int n = arr.length;
+        int[] front = new int[n];
+
+        // Base case: initialize front with the last row
+        for (int j = 0; j < n; j++) {
+            front[j] = arr[n - 1][j];
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            int[] cur = new int[n];
+            for (int j = i; j >= 0; j--) {
+                int d = arr[i][j] + front[j];
+                int dg = arr[i][j] + front[j + 1];
+                cur[j] = Math.min(d, dg);
+            }
+            front = cur;
+        }
+        return front[0];
     }
 }
