@@ -31,7 +31,7 @@ public class MinPathSum {
         int [][]dp=new int[m][n];
         for(int []row:dp)
             Arrays.fill(row,-1);
-        return memo(m-1,n-1,dp,grid);
+        return space(dp,grid);
 
     }
     //memoization
@@ -51,5 +51,66 @@ public class MinPathSum {
             left=memo(i,j-1,dp,grid)+grid[i][j];
 
         return dp[i][j]=Math.min(up,left);
+    }
+
+    private static int tab(int[][]dp,int[][]grid){
+        int m= grid.length;
+        int n=grid[0].length;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(i==0 && j==0)
+                    dp[i][j]=grid[i][j];
+                else{
+                int up = grid[i][j];
+
+                if (i > 0) up += dp[i - 1][j];
+                else up += (int)1e9;
+
+                // Calculate from left
+                int left = grid[i][j];
+                if (j > 0) left += dp[i][j - 1];
+                else left += (int)1e9;
+
+                // Take minimum
+                dp[i][j] = Math.min(up, left);
+            }
+            }
+        }
+        return dp[m-1][n-1];
+    }
+
+    private static int space(int[][]dp,int[][]grid){
+        int m= grid.length;
+        int n=grid[0].length;
+
+        int []prev=new int[n];
+        for(int i=0;i<m;i++){
+            int[] temp = new int[n];
+            for(int j=0;j<n;j++){
+                if(i==0 && j==0)
+                    temp[j]=grid[i][j];
+                else {
+                    // Take up direction if valid
+                    int up = grid[i][j];
+                    if (i > 0)
+                        up += prev[j];
+                    else
+                        up += (int)1e9;
+
+                    // Take left direction if valid
+                    int left = grid[i][j];
+                    if (j > 0)
+                        left += temp[j - 1];
+                    else
+                        left += (int)1e9;
+
+                    // Take minimum of both directions
+                    temp[j] = Math.min(up, left);
+                }
+            }
+            prev=temp;
+        }
+        return prev[n-1];
+
     }
 }
