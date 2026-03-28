@@ -73,3 +73,26 @@ public class HouseRobber {
         System.out.println(rob(nums));
     }
 }
+
+//best way
+class Solution {
+    public int rob(int[] nums) {
+        if (nums.length == 1) return nums[0];
+
+        // Max of (Robbing houses 0 to n-2) and (Robbing houses 1 to n-1)
+        return Math.max(robLinear(nums, 0, nums.length - 2),
+                robLinear(nums, 1, nums.length - 1));
+    }
+
+    private int robLinear(int[] nums, int start, int end) {
+        int prev2 = 0; // Represents DP[i-2]
+        int prev1 = 0; // Represents DP[i-1]
+
+        for (int i = start; i <= end; i++) {
+            int current = Math.max(prev1, nums[i] + prev2);
+            prev2 = prev1;
+            prev1 = current;
+        }
+        return prev1;
+    }
+}
