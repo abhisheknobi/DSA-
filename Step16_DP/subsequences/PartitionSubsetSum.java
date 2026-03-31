@@ -75,7 +75,6 @@ public class PartitionSubsetSum {
             taken = memo_helper(ind - 1, target - arr[ind], arr, dp);
         }
 
-        // FIXED: Proper bracing used above for clarity
         dp[ind][target] = (taken || notTaken) ? 1 : 0;
 
         return taken || notTaken;
@@ -93,7 +92,6 @@ public class PartitionSubsetSum {
                 boolean notTaken = dp[ind - 1][target];
 
                 boolean taken = false;
-                // FIXED: Check arr[ind] <= target, NOT arr[ind] <= k
                 if (arr[ind] <= target) {
                     taken = dp[ind - 1][target - arr[ind]];
                 }
@@ -115,14 +113,14 @@ public class PartitionSubsetSum {
             boolean[] curr = new boolean[k + 1];
             curr[0] = true;
 
-            // FIXED: Loop condition is target <= k, NOT target < n
+
             for (int target = 1; target <= k; target++) {
                 boolean notTaken = prev[target];
 
                 boolean taken = false;
-                // FIXED: Check arr[ind] <= target, NOT arr[ind] <= k
+
                 if (arr[ind] <= target) {
-                    // FIXED: prev[target - arr[ind]], NOT prev[arr[ind] - target]
+
                     taken = prev[target - arr[ind]];
                 }
                 curr[target] = notTaken || taken;
