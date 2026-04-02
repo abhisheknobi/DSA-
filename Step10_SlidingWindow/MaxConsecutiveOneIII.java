@@ -85,7 +85,7 @@ public class MaxConsecutiveOneIII {
                 zeros++;
             }
 
-            if(zeros<k){
+            if(zeros>k){
                 if(nums[left]==0) zeros--;
                 left++;
             }
@@ -100,6 +100,6 @@ public class MaxConsecutiveOneIII {
     static void main() {
        int[] nums = {1,1,1,0,0,0,1,1,1,1,0};
        int k=2;
-        System.out.println(better(nums,k));
+        System.out.println(optimal(nums,k));
     }
 }
