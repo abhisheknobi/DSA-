@@ -83,7 +83,7 @@ public class LongRepeatCharReplace {
             mpp.put(s.charAt(r),mpp.getOrDefault(s.charAt(r),0)+1);
             maxxfreq=Math.max(mpp.getOrDefault(s.charAt(r),0),maxxfreq);
 
-            if(r-l+1-maxlen>k){
+            if((r-l+1)-maxxfreq>k){
                 mpp.put(s.charAt(l),(mpp.getOrDefault(s.charAt(l),0)-1));
                 l++;
             }
