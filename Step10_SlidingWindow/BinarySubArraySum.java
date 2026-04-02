@@ -65,4 +65,39 @@ public class BinarySubArraySum {
         }
         return count;
     }
+    /*
+    used slidin window and 2 pointer but we had a dilemma whether to move left or right
+    so we write a method to count subarrays<=k then subract the methods with
+    goal and goal -1
+     */
+    public int optimal(int[] nums, int goal) {
+        // Return difference between atMost(goal) and atMost(goal - 1)
+        return atMost(nums, goal) - atMost(nums, goal - 1);
+    }
+    // Helper method to count subarrays with sum at most k
+    public int atMost(int[] nums, int k) {
+        // No valid subarray for negative sum
+        if (k < 0) return 0;
+
+        int left = 0;
+        int sum = 0;
+        int count = 0;
+
+        // Traverse array using right pointer
+        for (int right = 0; right < nums.length; right++) {
+            // Add current element to sum
+            sum += nums[right];
+
+            // Shrink window if sum exceeds k
+            while (sum > k) {
+                sum -= nums[left];
+                left++;
+            }
+
+            // Add number of valid subarrays ending at right
+            count += (right - left + 1);
+        }
+
+        return count;
+    }
 }
