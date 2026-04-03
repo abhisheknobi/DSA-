@@ -1,4 +1,4 @@
-package Step10_SlidingWindow;
+package Step10_SlidingWindow.medium;
 
 import java.util.Arrays;
 import java.util.HashMap;
