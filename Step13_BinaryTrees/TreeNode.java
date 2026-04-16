@@ -1,11 +1,11 @@
 package Step13_BinaryTrees;
 
-public class Node {
+public class TreeNode {
     int data;
-    Node left;
-    Node right;
+    TreeNode left;
+    TreeNode right;
 
-    Node(int val){
+    TreeNode(int val){
         data=val;
         left=null;
         right=null;
