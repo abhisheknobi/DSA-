@@ -39,7 +39,9 @@ public class FrogJump {
         // Return memoized result if already computed
         if (dp[ind] != -1) return dp[ind];
 
-        // Initialize right with a large value
+        // Initialize right with a large value because if the index is 1
+        //then only left can be taken and right is discarded hence by making it max
+        //right is discarded and value of left is taken
         int right = Integer.MAX_VALUE;
 
         // Compute cost when jumping from previous stone (ind - 1)
