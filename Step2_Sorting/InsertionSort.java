@@ -1,6 +1,6 @@
 package Step2_Sorting;
 
-public class InsertionSort {
+public class  InsertionSort {
     /*
      * It takes one element from the array and places it in its correct position
      */
