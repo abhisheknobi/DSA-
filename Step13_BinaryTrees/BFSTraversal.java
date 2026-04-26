@@ -14,7 +14,7 @@ public class BFSTraversal {
         root.right.right=new TreeNode(5);
 
         List<List<Integer>> result=levelOrder(root);
-        System.out.print("Preorder Traversal: ");
+        System.out.print("Preorder Traversal: "); 
         // Output each value in the
         // preorder traversal result
         for ( List<Integer> val : result) {
