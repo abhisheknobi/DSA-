@@ -40,30 +40,35 @@ public class MinRotations {
     }
 
     public static int optimal(int[] arr) {
-        int low = 0, n = arr.length, high = n - 1, mid = 0;
-        int min = Integer.MAX_VALUE;
-        int index = -1;
+        int low = 0, high = arr.length - 1;
+
+        // If the array is not rotated at all
+        if (arr[low] <= arr[high]) return 0;
+
         while (low <= high) {
-            mid = low + ((high - low) / 2);
-            if (arr[mid] <= arr[high]) {
-                if (arr[low] < min) {
-                    min = arr[mid];
-                    index = mid;
-                    high = mid - 1; // search in left half
-                } else {
-                    low = mid + 1; // search in right half
-                }
-            } else {
-                if (arr[low] < min) {
-                    min = arr[low];
-                    index = low;
-                    low = mid + 1; // search in right half
-                } else {
-                    high = mid - 1; // search in left half
-                }
+            int mid = low + (high - low) / 2;
+
+            // Check if mid is the minimum element
+            // 1. If mid > mid + 1, then mid + 1 is the minimum
+            if (mid < high && arr[mid] > arr[mid + 1]) {
+                return mid + 1;
+            }
+            // 2. If mid < mid - 1, then mid is the minimum
+            if (mid > low && arr[mid] < arr[mid - 1]) {
+                return mid;
+            }
+
+            // Decide which half to search:
+            // If left half is sorted, the pivot is in the right half
+            if (arr[mid] >= arr[low]) {
+                low = mid + 1;
+            }
+            // If left half is unsorted, the pivot is in the left half
+            else {
+                high = mid - 1;
             }
         }
-        return index;
+        return 0;
     }
 
     public static void main(String[] args) {
